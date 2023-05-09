@@ -13,8 +13,12 @@ public class Exercicio2 {
         numeros.add(7);
         numeros.add(8);
 
-        numeros.add(4,10);
-
+        System.out.println("\n-----Lista inicial-----");
+        for (int i=0; i<numeros.size();i++){
+            System.out.println(numeros.get(i));
+        }
+        System.out.println("\n-----Lista atualizada-----");
+        numeros.add(4,50);
         for (int i=0; i<numeros.size();i++){
             System.out.println(numeros.get(i));
         }

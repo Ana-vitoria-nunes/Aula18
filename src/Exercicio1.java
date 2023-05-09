@@ -10,8 +10,14 @@ public class Exercicio1 {
         nomes.add("Raissa");
         nomes.add("Bruna");
         nomes.add("Paula");
+        nomes.add("Paula");
         nomes.add("Paola");
 
+        System.out.println("\n-----Lista inicial-----");
+        for (int i = 0; i < nomes.size(); i++) {
+            System.out.println(nomes.get(i));
+        }
+        System.out.println("\n-----Lista atualizada-----");
         for (int i = 0; i < nomes.size(); i++) {
             nomes.remove(new String("Paula"));
             System.out.println(nomes.get(i));

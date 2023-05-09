@@ -4,48 +4,36 @@ import java.util.Scanner;
 
 public class Exercicio3 {
     public static void main(String[] args) {
-        System.out.println("=========================================================");
-        System.out.println("Exemplo de mostrar lista de números com funções");
-        System.out.println("=========================================================");
-        mostrarTodosOsValoresListaNumero(retornarListaNumeros());
+        Scanner entrada=new Scanner(System.in);
+        System.out.println("Qual o tamanho da lista que deseja: ");
+        int tamanhoLista= entrada.nextInt();
+        List<Integer>ListaNumeros= retornoListaNumeros(tamanhoLista);
 
+        adicionarValorLista(ListaNumeros,tamanhoLista);
+        System.out.println("A media dos valores adicionados é: "+mediaLista(ListaNumeros));
 
-        System.out.println("=========================================================");
-        List<Integer> listaNumerosArray = retornarListaNumeros();
-        mostrarTodosOsValoresListaNumero(listaNumerosArray);
-
-
-        System.out.println("=========================================================");
-        System.out.println("Exemplo de mostrar lista de quantidade de nomes com funções");
-
-
-        System.out.println("=========================================================");
-        List<String> listaNomesComQuantidade = mostrarNomesComPosicao(retornarListaNumeros());
-        System.out.println("Exemplo de array = " + listaNomesComQuantidade);
     }
-    public static List<Integer> retornarListaNumeros() {
-        Scanner valorr=new Scanner(System.in);
-        System.out.println("blabla: ");
-        int receptor=valorr.nextInt();
+    public static List<Integer>retornoListaNumeros(int tamanhoLista){
+        List<Integer>lista=new ArrayList<>(tamanhoLista);
 
-        List<Integer> listaNumero = new ArrayList<>(receptor);
-
-        return listaNumero;
+        return lista;
     }
+    public static Boolean adicionarValorLista(List<Integer>lista,int tamamhoLista){
+        Scanner entrada=new Scanner(System.in);
 
-    public static void mostrarTodosOsValoresListaNumero(List<Integer> numeros) {
-
-        for (int i = 0; i < numeros.size(); i++) {
-            
-            System.out.println(numeros.get(i));
+        for (int i=0; i<tamamhoLista; i++){
+            System.out.println("Digite o "+(i+1)+"valor");
+            lista.add(entrada.nextInt());
         }
+        return true;
     }
-    public static List<String> mostrarNomesComPosicao(List<Integer> quantidade) {
-        List<String> nomesExibir = new ArrayList<>();
-        for (int i = 0; i < quantidade.size(); i++) {
-            nomesExibir.add(quantidade.get(i) +" nomes");
-            System.out.println(nomesExibir.get(i));
+    public static double mediaLista(List<Integer>lista){
+        double media=0;
+
+        for (int i=0;i<lista.size();i++){
+            media=media+lista.get(i);
         }
-        return nomesExibir;
+        media=media/lista.size();
+        return media;
     }
 }
